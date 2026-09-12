@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/home"
+        android:icon="@drawable/home"
+        android:title="Home"/>
+    <item android:id="@+id/crop"
+        android:icon="@drawable/crop"
+        android:title="Crops"/>
+    <item android:id="@+id/scan"
+        android:icon="@drawable/logo"
+        android:title="AI Scan"/>
+    <item android:id="@+id/weather"
+        android:icon="@drawable/weather"
+        android:title="Weather"/>
+    <item android:id="@+id/task"
+        android:icon="@drawable/task"
+        android:title="Task"/>
+</menu>

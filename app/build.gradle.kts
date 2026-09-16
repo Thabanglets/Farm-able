@@ -2,6 +2,7 @@ import org.gradle.kotlin.dsl.implementation
 
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -40,7 +41,9 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.legacy.support.v4)
     implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.recyclerview)
     implementation(libs.material)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -48,10 +51,10 @@ dependencies {
 
     implementation("androidx.core:core-splashscreen:1.0.0")
     // Room components
-    implementation("androidx.room:room-runtime:2.2.5")
-//    kapt( "androidx.room:room-compiler:2.2.5")
-    implementation ("androidx.room:room-ktx:2.2.5")
-    androidTestImplementation ("androidx.room:room-testing:2.2.5")
+    implementation(libs.room.runtime)
+    ksp(libs.room.compiler)
+    implementation(libs.room.ktx)
+    androidTestImplementation ("androidx.room:room-testing:2.8.5")
 
     // Lifecycle components
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")

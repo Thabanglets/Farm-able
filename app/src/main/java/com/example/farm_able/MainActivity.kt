@@ -18,9 +18,27 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(binding.root)
 
+        supportFragmentManager.registerFragmentLifecycleCallbacks(object : androidx.fragment.app.FragmentManager.FragmentLifecycleCallbacks() {
+            override fun onFragmentResumed(fm: androidx.fragment.app.FragmentManager, f: Fragment) {
+                super.onFragmentResumed(fm, f)
+                if (f is OnboardingFragment || f is SignupFragment || f is LoginFragment) {
+                    binding.bottomNav.visibility = android.view.View.GONE
+                } else {
+                    binding.bottomNav.visibility = android.view.View.VISIBLE
+                }
+            }
+        }, false)
+
         // Set initial fragment
         if (savedInstanceState == null) {
-            replaceFragment(HomeFragment())
+            val sharedPref = getSharedPreferences("FarmablePrefs", android.content.Context.MODE_PRIVATE)
+            val isOnboardingFinished = sharedPref.getBoolean("is_onboarding_finished", false)
+            
+            if (isOnboardingFinished) {
+                replaceFragment(LoginFragment())
+            } else {
+                replaceFragment(OnboardingFragment())
+            }
         }
 
         binding.bottomNav.setOnItemSelectedListener { menuItem ->

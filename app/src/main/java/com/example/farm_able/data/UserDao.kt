@@ -12,4 +12,7 @@ interface UserDao {
     suspend fun addUser(user: User)
     @Query("SELECT * FROM Users ORDER BY UserID ASC")
     fun readAllData() : LiveData<List<User>>
+
+    @Query("SELECT * FROM Users WHERE Email = :email AND PasswordHash = :passwordHash LIMIT 1")
+    suspend fun getUserByEmailAndPassword(email: String, passwordHash: String): User?
 }

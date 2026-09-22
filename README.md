@@ -141,3 +141,6 @@ jobs:
 3.  Allow the Gradle build system to download and synchronize project dependencies.
 4.  Launch an active Android Virtual Device (AVD Emulator) or plug in a physical device.
 5.  Click the **Run App** icon (`app`) to build, test, and deploy!
+
+## link
+https://youtube.com/shorts/ZgwAaGqVu_E?feature=share
